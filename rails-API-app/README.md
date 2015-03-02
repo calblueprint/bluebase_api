@@ -1,4 +1,4 @@
-Test app
+rails-API-app
 ========
 
 Getting Started
