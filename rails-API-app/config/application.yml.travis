@@ -1,0 +1,27 @@
+# Change env variables as necessary for Travis.
+
+SECRET_KEY_BASE: cdaec3699879da292db0d58b399d06f125fe1f4217362b75619b641d2c038e498ac1952061497e08c383ea433a8f0211a6ddeb691332c3ff26aec3409dc971b1
+DEVISE_SECRET_KEY: 90cdb8fe40904d6b3fb9bd1a6179119cb3959534f67da25db7dc40f1b379fa7fa02fb5fc5bbfcd61158e21f26f6aa94bffdf1d02d10c49f6f36886bae430c4ab
+
+# Email config
+SMTP_ADDRESS: <your smtp address>
+SMTP_DOMAIN: <your domain>
+SMTP_PASSWORD: <api_key>
+SMTP_USERNAME: <user_name>
+
+# Staging will send emails to this address
+EMAIL_RECIPIENTS: ~
+
+# Rollbar access token; change both to match your own rollbar project
+ROLLBAR_ACCESS_TOKEN: <api_key>
+
+# Google analytics key; update once you set it up
+# Disabled in development and test
+GA_KEY: ~
+
+production:
+  ROLLBAR_ACCESS_TOKEN: <production_api_key>
+  GA_KEY: <GA_token>
+
+staging:
+  EMAIL_RECIPIENTS: <your_email>
