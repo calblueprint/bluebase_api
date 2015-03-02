@@ -1,4 +1,0 @@
-test:
-  adapter:  postgresql
-  database: test_app_test
-  username: postgres
