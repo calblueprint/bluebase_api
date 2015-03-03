@@ -22,7 +22,6 @@ fi
 
 # Generate rollbar config
 bin/rails generate rollbar
-# Generate simple_form config
-bin/rails generate simple_form:install
+
 # Copy i18n-tasks spec over
 cp $(i18n-tasks gem-path)/templates/rspec/i18n_spec.rb spec/
