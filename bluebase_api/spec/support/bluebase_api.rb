@@ -1,4 +1,4 @@
-module BluebaseTestHelpers
+module Bluebase_apiTestHelpers
   APP_NAME = "dummy"
 
   def remove_project_directory
@@ -9,12 +9,12 @@ module BluebaseTestHelpers
     FileUtils.mkdir_p(tmp_path)
   end
 
-  def run_bluebase(arguments = nil)
+  def run_bluebase_api(arguments = nil)
     Dir.chdir(tmp_path) do
       Bundler.with_clean_env do
         ENV["TESTING"] = "1"
 
-        %x(#{bluebase_bin} #{APP_NAME} #{arguments})
+        %x(#{bluebase_api_bin} #{APP_NAME} #{arguments})
       end
     end
   end
@@ -39,8 +39,8 @@ module BluebaseTestHelpers
     @tmp_path ||= Pathname.new("#{root_path}/tmp")
   end
 
-  def bluebase_bin
-    File.join(root_path, "bin", "bluebase")
+  def bluebase_api_bin
+    File.join(root_path, "bin", "bluebase_api")
   end
 
   def root_path

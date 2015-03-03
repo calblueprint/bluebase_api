@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'Initialize a new project with default configuration' do
   # TODO: Write comprehensive specs
-  before { run_bluebase }
+  before { run_bluebase_api }
 
   scenario 'staging config is inherited from production' do
     staging_file = IO.read("#{project_path}/config/environments/staging.rb")
@@ -12,7 +12,7 @@ feature 'Initialize a new project with default configuration' do
     expect(staging_file).to match(/#{config_stub}/), staging_file
   end
 
-  scenario 'generated .ruby-version is pulled from Bluebase .ruby-version' do
+  scenario 'generated .ruby-version is pulled from Bluebase_api .ruby-version' do
     ruby_version_file = IO.read("#{project_path}/.ruby-version")
 
     expect(ruby_version_file).to eq "#{RUBY_VERSION}\n"
@@ -61,7 +61,7 @@ feature 'Initialize a new project with default configuration' do
 
   scenario "generated en.yml is evaluated" do
     locales_en_file = IO.read("#{project_path}/config/locales/en.yml")
-    app_name = BluebaseTestHelpers::APP_NAME
+    app_name = Bluebase_apiTestHelpers::APP_NAME
 
     expect(locales_en_file).to match(/application: #{app_name.humanize}/)
   end

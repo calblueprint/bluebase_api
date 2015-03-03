@@ -1,7 +1,7 @@
 require "rails/generators"
 require "rails/generators/rails/app/app_generator"
 
-module Bluebase
+module Bluebase_api
   class AppGenerator < Rails::Generators::AppGenerator
     class_option :database, type: :string, aliases: "-d", default: "postgresql",
       desc: "Preconfigure for selected database (options: #{DATABASES.join('/')})"
@@ -21,11 +21,11 @@ module Bluebase
 
     # Invoked after Rails generates app
     def finish_template
-      invoke :bluebase_customization
+      invoke :bluebase_api_customization
       super
     end
 
-    def bluebase_customization
+    def bluebase_api_customization
       invoke :customize_root_files
       invoke :customize_app_files
       invoke :customize_bin_files
@@ -109,7 +109,7 @@ module Bluebase
     end
 
     def outro
-      say "Your bluebase is complete!"
+      say "Your bluebase_api is complete!"
       say "Remember to set:"
       say "- Your database settings in config/database.yml"
       say "- Your env variables in config/application.yml"
@@ -124,7 +124,7 @@ module Bluebase
     private
 
     def get_builder_class
-      Bluebase::AppBuilder
+      Bluebase_api::AppBuilder
     end
   end
 end

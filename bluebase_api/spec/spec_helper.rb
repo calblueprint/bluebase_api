@@ -4,11 +4,11 @@ require 'pry'
 
 Bundler.require(:default, :test)
 
-require (Pathname.new(__FILE__).dirname + '../lib/bluebase').expand_path
+require (Pathname.new(__FILE__).dirname + '../lib/bluebase_api').expand_path
 
 Dir['./spec/support/**/*.rb'].each { |file| require file }
 RSpec.configure do |config|
-  config.include BluebaseTestHelpers
+  config.include Bluebase_apiTestHelpers
 
   config.before(:all) do
     create_tmp_directory
