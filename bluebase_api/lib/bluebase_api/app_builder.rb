@@ -33,10 +33,6 @@ module Bluebase_api
       create_file ".ruby-version", "#{Bluebase_api::RUBY_VERSION}\n"
     end
 
-    def add_travis_config
-      template ".travis.yml.erb", ".travis.yml"
-    end
-
     def add_guardfile
       copy_file "Guardfile", "Guardfile"
     end
@@ -48,32 +44,8 @@ module Bluebase_api
     #########################################################
     # app/ directory files
     #########################################################
-    def add_vendor_dirs
-      %w(app/assets/javascripts/vendor app/assets/stylesheets/vendor).each do |dir|
-        run "mkdir #{dir}"
-        run "touch #{dir}/.keep"
-      end
-    end
 
-    def replace_application_css_with_scss
-      base_dir = "app/assets/stylesheets"
-      remove_file "#{base_dir}/application.css"
-      copy_file "app/application.css.scss", "#{base_dir}/application.css.scss"
-    end
-
-    def add_application_folder_and_files_to_views
-      base_dir = "app/views/application"
-      empty_directory base_dir
-      copy_file "app/_flash.html.slim", "#{base_dir}/_flash.html.slim"
-      copy_file "app/_ga_boiler.html.slim", "#{base_dir}/_ga_boiler.html.slim"
-      copy_file "app/_fb_meta_tags.html.slim", "#{base_dir}/_fb_meta_tags.html.slim"
-    end
-
-    def replace_application_erb_with_slim
-      base_dir = "app/views/layouts"
-      remove_file "#{base_dir}/application.html.erb"
-      copy_file "app/application.html.slim", "#{base_dir}/application.html.slim"
-    end
+    # Only front-end changes were contained here, so removed for API app.
 
     #########################################################
     # bin/ directory files
@@ -195,10 +167,6 @@ module Bluebase_api
       template "config/database.yml.sample.erb", "config/database.yml"
       replace_in_file "config/database.yml",
         "# and then copy the file into database.yml", ""
-    end
-
-    def add_travis_database_yml
-      template "config/database.yml.travis.erb", "config/database.yml.travis"
     end
 
     def add_i18n_tasks_yml
