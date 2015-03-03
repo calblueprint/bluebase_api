@@ -1,6 +1,6 @@
-module Bluebase
+module Bluebase_api
   class AppBuilder < Rails::AppBuilder
-    include Bluebase::Actions
+    include Bluebase_api::Actions
 
     #########################################################
     # Root directory files
@@ -20,7 +20,7 @@ module Bluebase
 
     def replace_gitignore
       remove_file ".gitignore"
-      copy_file "bluebase_gitignore", ".gitignore"
+      copy_file "bluebase_api_gitignore", ".gitignore"
     end
 
     def add_rubocop_and_hound_config
@@ -30,7 +30,7 @@ module Bluebase
 
     def add_rvm_config
       create_file ".ruby-gemset",  "#{app_path}\n"
-      create_file ".ruby-version", "#{Bluebase::RUBY_VERSION}\n"
+      create_file ".ruby-version", "#{Bluebase_api::RUBY_VERSION}\n"
     end
 
     def add_travis_config
@@ -209,7 +209,7 @@ module Bluebase
     def replace_secrets_yml
       file = "config/secrets.yml"
       remove_file file
-      copy_file "config/bluebase_secrets.yml", file
+      copy_file "config/bluebase_api_secrets.yml", file
     end
 
     def add_smtp_settings

@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative "../lib/bluebase"
-version = Bluebase::VERSION
-%x(gem build bluebase.gemspec)
-%x(gem install ./bluebase-#{version}.gem)
+require_relative "../lib/bluebase_api"
+version = Bluebase_api::VERSION
+%x(gem build bluebase_api.gemspec)
+%x(gem install ./bluebase_api-#{version}.gem)

@@ -2,14 +2,14 @@ require 'spec_helper'
 
 feature 'Heroku' do
   scenario 'Initialize a project with --heroku=true' do
-    run_bluebase('--heroku=true')
+    run_bluebase_api('--heroku=true')
 
     expect(FakeHeroku).to have_gem_included(project_path, 'rails_12factor')
     expect(FakeHeroku).to have_created_app_for('staging')
     expect(FakeHeroku).to have_created_app_for('production')
 
     bin_setup = IO.read("#{project_path}/bin/setup")
-    app_name = BluebaseTestHelpers::APP_NAME
+    app_name = Bluebase_apiTestHelpers::APP_NAME
 
     expect(bin_setup).to include("figaro heroku:set -a #{app_name}-production -e production")
     expect(bin_setup).to include("figaro heroku:set -a #{app_name}-staging -e production")

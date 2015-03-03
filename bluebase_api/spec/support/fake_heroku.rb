@@ -24,7 +24,7 @@ class FakeHeroku
   end
 
   def self.has_created_app_for?(remote_name)
-    app_name = "#{BluebaseTestHelpers::APP_NAME}-#{remote_name}"
+    app_name = "#{Bluebase_apiTestHelpers::APP_NAME}-#{remote_name}"
     expected_line = "create #{app_name} --remote #{remote_name}\n"
 
     File.foreach(RECORDER).any? { |line| line == expected_line }
