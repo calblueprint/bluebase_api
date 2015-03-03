@@ -1,6 +1,6 @@
 # Bluebase
 
-The base app for Blueprint's Rails apps.
+The base API for Blueprint's Rails mobile applications.
 
 ## Features
 
@@ -11,16 +11,9 @@ Core gems:
 
 Component gems:
 - [Devise](https://github.com/plataformatec/devise) for user auth
-- [Simple Form](https://github.com/plataformatec/simple_form) for easier forms
 - [Gon](https://github.com/gazay/gon) to push data to javascript
 - [Kaminari](https://github.com/amatsuda/kaminari) for pagination
 - [Recipient Interceptor](https://github.com/croaky/recipient_interceptor) to stop email sending from staging
-
-Frontend gems:
-- [Slim](https://github.com/slim-template/slim-rails) to use the [Slim](http://slim-lang.com/) templating language
-- [Autoprefixer](https://github.com/ai/autoprefixer-rails) to autogenerate vendor prefixes
-- [Flutie](https://github.com/thoughtbot/flutie) for the ```body_class``` view helper
-- [Title](https://github.com/calebthompson/title) for page titles in I18n
 
 Development gems:
 - [Annotate](https://github.com/ctran/annotate_models) to annotate models
@@ -60,18 +53,17 @@ Other features:
 - A low database connection pool limit
 - ```t()``` and ```l()``` in specs without prefixing with I18n
 - An automatically-created ```SECRET_KEY_BASE``` environment variable in all environments.
-- Configuration for Travis continuous integration.
 - Config for Google Analytics
 
 ## Installation
 
 Run
 
-    gem install bluebase
+    gem install bluebase_api
 
 Then you can run
 
-    bluebase app_name
+    bluebase_api app_name
 
 To create an app called ```app_name```. Optionally append ```-G repo_name``` and ```-H``` to create a Github repo and staging + production Heroku apps, respectively.
 
