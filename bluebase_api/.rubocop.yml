@@ -1,0 +1,12 @@
+AllCops:
+  Exclude: ~
+
+Metrics/LineLength:
+  Description: 'Limit lines to 110 characters.'
+  Max: 110
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false

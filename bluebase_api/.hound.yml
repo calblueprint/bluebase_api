@@ -1,0 +1,6 @@
+ruby:
+  enabled: true
+  config_file: ./.rubocop.yml
+
+# Show cop names by default; can commment out if needed
+ShowCopNames: true
