@@ -27,7 +27,6 @@ module Bluebase_api
 
     def bluebase_api_customization
       invoke :customize_root_files
-      invoke :customize_app_files
       invoke :customize_bin_files
       invoke :customize_config_files
       invoke :customize_spec_files
@@ -42,16 +41,8 @@ module Bluebase_api
       build :replace_gitignore
       build :add_rubocop_and_hound_config
       build :add_rvm_config
-      build :add_travis_config
       build :add_guardfile
       build :add_dot_rspec
-    end
-
-    def customize_app_files
-      build :add_vendor_dirs
-      build :replace_application_css_with_scss
-      build :add_application_folder_and_files_to_views
-      build :replace_application_erb_with_slim
     end
 
     def customize_bin_files
@@ -70,7 +61,6 @@ module Bluebase_api
       build :replace_en_yml
       build :add_application_yml
       build :add_database_yml if options[:database] == 'postgresql'
-      build :add_travis_database_yml
       build :add_i18n_tasks_yml
       build :replace_secrets_yml
       build :add_smtp_settings
