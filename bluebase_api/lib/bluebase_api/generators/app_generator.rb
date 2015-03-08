@@ -65,10 +65,10 @@ module Bluebase_api
       build :replace_secrets_yml
       build :add_smtp_settings
       build :remove_routes_comment_lines
-      build :replace_routes_rb ##
+      build :replace_routes_rb # Added by Quinton and Tricia
     end
 
-    def customize_spec_files 
+    def customize_spec_files
       build :add_spec_dirs
       build :configure_rspec
       build :configure_factorygirl
@@ -78,7 +78,7 @@ module Bluebase_api
     end
 
 
-    def customize_app_directory ##
+    def customize_app_directory # Added by Quinton and Tricia
       build :configure_api_directory
       build :configure_v1_directory
       build :add_base_controller
