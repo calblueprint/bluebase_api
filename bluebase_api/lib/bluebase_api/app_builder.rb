@@ -61,7 +61,7 @@ module Bluebase_api
     def replace_application_controller
       file = "app/controllers/application_controller.rb"
       remove_file file
-      copy_file file, file
+      template file, file
     end
 
     def add_serializers_directory
@@ -204,7 +204,7 @@ module Bluebase_api
     def replace_routes_rb
       file = "config/routes.rb"
       remove_file file
-      copy_file file, file
+      template file, file
     end
 
     #########################################################
