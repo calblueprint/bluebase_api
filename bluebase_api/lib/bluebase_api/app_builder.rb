@@ -59,6 +59,8 @@ module Bluebase_api
     end
 
     def replace_application_controller
+      file = "app/controllers/application_controller.rb"
+      remove_file file
       template "app/controllers/application_controller.rb", "app/controllers/application_controller.rb"
     end
 
@@ -200,6 +202,8 @@ module Bluebase_api
     end
 
     def replace_routes_rb
+      file = "config/routes.rb"
+      remove_file file
       template "config/routes.rb", "config/routes.rb"
     end
 
