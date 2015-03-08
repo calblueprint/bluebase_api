@@ -1,8 +1,8 @@
 source "https://rubygems.org"
-ruby "<%= Bluebase::RUBY_VERSION %>"
+ruby "<%= Bluebase_api::RUBY_VERSION %>"
 
 # Core gems
-gem "rails", "<%= Bluebase::RAILS_VERSION %>"
+gem "rails", "<%= Bluebase_api::RAILS_VERSION %>"
 gem "thin"
 <% if options[:database] == 'postgresql' -%>
 gem "pg"
