@@ -46,6 +46,25 @@ module Bluebase_api
     #########################################################
 
     # Only front-end changes were contained here, so removed for API app.
+    def configure_api_directory
+      empty_directory "app/controllers/api"
+    end
+
+    def configure_v1_directory
+      empty_directory_with_keep_file "app/controllers/api/v1"
+    end
+
+    def add_base_controller
+      template "app/controllers/api/base_controller.rb", "app/controllers/api/base_controller.rb"
+    end
+
+    def replace_application_controller
+      template "app/controllers/application_controller.rb", "app/controllers/application_controller.rb"
+    end
+
+    def add_serializers_directory
+      empty_directory_with_keep_file "app/serializers"
+    end
 
     #########################################################
     # bin/ directory files
@@ -153,11 +172,6 @@ module Bluebase_api
       replace_in_file "config/application.yml",
         "# Copy this file into application.yml and change env variables as necessary.",
         "# Change env variables as necessary."
-
-      template "config/application.yml.sample.erb", "config/application.yml.travis"
-      replace_in_file "config/application.yml.travis",
-        "# Copy this file into application.yml and change env variables as necessary.",
-        "# Change env variables as necessary for Travis."
     end
 
     def add_database_yml
@@ -185,10 +199,8 @@ module Bluebase_api
       copy_file file, file
     end
 
-    def remove_routes_comment_lines
-      replace_in_file "config/routes.rb",
-        /Rails\.application\.routes\.draw do.*end/m,
-        "Rails.application.routes.draw do\nend"
+    def replace_routes_rb
+      template "config/routes.rb", "config/routes.rb"
     end
 
     #########################################################
