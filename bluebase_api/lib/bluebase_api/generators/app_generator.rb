@@ -65,6 +65,7 @@ module Bluebase_api
       build :replace_secrets_yml
       build :add_smtp_settings
       build :remove_routes_comment_lines
+      build :replace_routes_rb # Added by Quinton and Tricia
     end
 
     def customize_spec_files
@@ -74,6 +75,15 @@ module Bluebase_api
       build :configure_actionmailer
       build :configure_i18n
       build :configure_database_cleaner
+    end
+
+
+    def customize_app_directory # Added by Quinton and Tricia
+      build :configure_api_directory
+      build :configure_v1_directory
+      build :add_base_controller
+      build :replace_application_controller
+      build :add_serializers_directory
     end
 
     def setup_git_and_github
