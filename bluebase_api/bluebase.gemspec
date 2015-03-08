@@ -1,18 +1,18 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'bluebase/version'
+require 'bluebase_api/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "bluebase"
-  spec.version       = Bluebase::VERSION
+  spec.name          = "bluebase_api"
+  spec.version       = Bluebase_api::VERSION
   spec.authors       = ["Sam Lau, Tricia Fu and Quinton Dang", "Cal Blueprint"]
   spec.email         = ["team@calblueprint.org"]
-  spec.summary       = "Bluebase creates a Rails app with all of our favorite defaults."
+  spec.summary       = "Bluebase_api creates a Rails API app with all of our favorite defaults."
   spec.description   = <<-HERE
-Bluebase is Blueprint's base Rails app. We use it internally to get a jump start on our Rails projects.
+Bluebase_api is Blueprint's base Rails API app. We use it internally to get a jump start on our Rails projects.
   HERE
-  spec.homepage      = "https://github.com/calblueprint/bluebase"
+  spec.homepage      = "https://github.com/calblueprint/bluebase_api"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
