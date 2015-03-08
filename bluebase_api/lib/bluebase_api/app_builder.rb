@@ -68,6 +68,24 @@ module Bluebase_api
       empty_directory_with_keep_file "app/serializers"
     end
 
+    def remove_app_assets_directory
+    end
+
+    def remove_app_views_directory
+    end
+
+    #########################################################
+    # vendor directory files
+    #########################################################
+    def remove_vendor_directories # Added by Quinton and Tricia
+    end
+    #########################################################
+    # public/ directory files
+    #########################################################
+    def remove_html_files # Added by Quinton and Tricia
+
+    end
+
     #########################################################
     # bin/ directory files
     #########################################################
