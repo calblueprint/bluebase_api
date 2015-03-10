@@ -61,7 +61,7 @@ module Bluebase_api
     def replace_application_controller
       file = "app/controllers/application_controller.rb"
       remove_file file
-      copy_file file, file
+      template "app/controllers/bluebase_api_application_controller.rb", file
     end
 
     def add_serializers_directory
@@ -69,21 +69,27 @@ module Bluebase_api
     end
 
     def remove_app_assets_directory
+      run "rm -rf app/assets"
     end
 
     def remove_app_views_directory
+      run "rm -rf app/views"
     end
 
     #########################################################
     # vendor directory files
     #########################################################
-    def remove_vendor_directories # Added by Quinton and Tricia
+    def remove_vendor_assets_directories # Added by Quinton and Tricia
+      run "rm -rf vendor/assets"
     end
     #########################################################
     # public/ directory files
     #########################################################
     def remove_html_files # Added by Quinton and Tricia
-
+      remove_file "public/404.html"
+      remove_file "public/422.html"
+      remove_file "public/500.html"
+      run "rm favicon.ico"
     end
 
     #########################################################
@@ -222,7 +228,7 @@ module Bluebase_api
     def replace_routes_rb
       file = "config/routes.rb"
       remove_file file
-      copy_file file, file
+      template "config/bluebase_api_routes.rb", file
     end
 
     #########################################################
