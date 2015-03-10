@@ -83,8 +83,8 @@ module Bluebase_api
       build :add_base_controller
       build :replace_application_controller
       build :add_serializers_directory
-      build :remove_assets_directory
-      build :remove_views_directory
+      build :remove_app_assets_directory
+      build :remove_app_views_directory
     end
 
     def customize_public_directory # Added by Quinton and Tricia
@@ -92,7 +92,7 @@ module Bluebase_api
     end
 
     def customize_vendor_directory # Added by Quinton and Tricia
-      build :remove_vendor_directories
+      build :remove_vendor_assets_directories
     end
 
     def setup_git_and_github
