@@ -30,14 +30,14 @@ module Bluebase_api
       invoke :customize_bin_files
       invoke :customize_config_files
       invoke :customize_spec_files
-      invoke :setup_git_and_github
-      invoke :setup_heroku_apps
-      invoke :outro
       invoke :customize_app_directory
       invoke :customize_public_directory
       invoke :customize_vendor_directory
       invoke :customize_lib_directory
       invoke :customize_tmp_directory
+      invoke :setup_git_and_github
+      invoke :setup_heroku_apps
+      invoke :outro
     end
 
     def customize_root_files
