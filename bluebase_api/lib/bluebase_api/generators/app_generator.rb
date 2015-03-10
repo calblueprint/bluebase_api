@@ -33,6 +33,11 @@ module Bluebase_api
       invoke :setup_git_and_github
       invoke :setup_heroku_apps
       invoke :outro
+      invoke :customize_app_directory
+      invoke :customize_public_directory
+      invoke :customize_vendor_directory
+      invoke :customize_lib_directory
+      invoke :customize_tmp_directory
     end
 
     def customize_root_files
@@ -76,6 +81,9 @@ module Bluebase_api
       build :configure_database_cleaner
     end
 
+    def customize_lib_directory # Added by Quinton and Tricia
+      build :remove_lib_assets_directory
+    end
 
     def customize_app_directory # Added by Quinton and Tricia
       build :configure_api_directory
@@ -93,6 +101,10 @@ module Bluebase_api
 
     def customize_vendor_directory # Added by Quinton and Tricia
       build :remove_vendor_assets_directories
+    end
+
+    def customize_tmp_directory # Added by Quinton and Tricia
+      build :remove_tmp_assets_directory
     end
 
     def setup_git_and_github

@@ -80,7 +80,8 @@ module Bluebase_api
     # vendor directory files
     #########################################################
     def remove_vendor_assets_directories # Added by Quinton and Tricia
-      run "rm -rf vendor/assets"
+      run "rm -rf vendor"
+      empty_directory_with_keep_file "vendor"
     end
     #########################################################
     # public/ directory files
@@ -89,7 +90,7 @@ module Bluebase_api
       remove_file "public/404.html"
       remove_file "public/422.html"
       remove_file "public/500.html"
-      run "rm favicon.ico"
+      run "rm -rf public/favicon.ico"
     end
 
     #########################################################
@@ -99,7 +100,21 @@ module Bluebase_api
       copy_file "bin/setup", "bin/setup"
       run "chmod a+x bin/setup"
     end
+   
+    #########################################################
+    # lib/ directory files
+    #########################################################
+    def remove_lib_assets_directory
+      run "rm -rf lib/assets"
+    end
 
+    #########################################################
+    # tmp/ directory files
+    #########################################################
+    def remove_tmp_assets_directory
+      run "rm -rf tmp/cache"
+      empty_directory_with_keep_file "tmp/cache"
+    end
     #########################################################
     # config/ directory files
     #########################################################
@@ -228,11 +243,7 @@ module Bluebase_api
     def replace_routes_rb
       file = "config/routes.rb"
       remove_file file
-<<<<<<< HEAD
       template "config/bluebase_api_routes.rb", file
-=======
-      template file, file
->>>>>>> 2c430426eb5ed355eb1a7e838c46529888126a31
     end
 
     #########################################################
