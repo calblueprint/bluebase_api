@@ -228,7 +228,11 @@ module Bluebase_api
     def replace_routes_rb
       file = "config/routes.rb"
       remove_file file
+<<<<<<< HEAD
       template "config/bluebase_api_routes.rb", file
+=======
+      template file, file
+>>>>>>> 2c430426eb5ed355eb1a7e838c46529888126a31
     end
 
     #########################################################
