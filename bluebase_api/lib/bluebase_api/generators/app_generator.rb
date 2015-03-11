@@ -30,6 +30,11 @@ module Bluebase_api
       invoke :customize_bin_files
       invoke :customize_config_files
       invoke :customize_spec_files
+      invoke :customize_app_directory
+      invoke :customize_public_directory
+      invoke :customize_vendor_directory
+      invoke :customize_lib_directory
+      invoke :customize_tmp_directory
       invoke :setup_git_and_github
       invoke :setup_heroku_apps
       invoke :outro
@@ -64,7 +69,7 @@ module Bluebase_api
       build :add_i18n_tasks_yml
       build :replace_secrets_yml
       build :add_smtp_settings
-      build :replace_routes_rb # Added by Quinton and Tricia
+      build :replace_routes_rb
     end
 
     def customize_spec_files
@@ -76,8 +81,11 @@ module Bluebase_api
       build :configure_database_cleaner
     end
 
+    def customize_lib_directory
+      build :remove_lib_assets_directory
+    end
 
-    def customize_app_directory # Added by Quinton and Tricia
+    def customize_app_directory
       build :configure_api_directory
       build :configure_v1_directory
       build :add_base_controller
@@ -87,12 +95,16 @@ module Bluebase_api
       build :remove_app_views_directory
     end
 
-    def customize_public_directory # Added by Quinton and Tricia
+    def customize_public_directory
       build :remove_html_files
     end
 
-    def customize_vendor_directory # Added by Quinton and Tricia
+    def customize_vendor_directory
       build :remove_vendor_assets_directories
+    end
+
+    def customize_tmp_directory
+      build :remove_tmp_assets_directory
     end
 
     def setup_git_and_github
