@@ -1,4 +1,4 @@
-# Bluebase
+# Bluebase API
 
 The base app for Blueprint's Rails API apps.
 
