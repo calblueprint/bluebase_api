@@ -79,14 +79,14 @@ module Bluebase_api
     #########################################################
     # vendor directory files
     #########################################################
-    def remove_vendor_assets_directories # Added by Quinton and Tricia
+    def remove_vendor_assets_directories
       run "rm -rf vendor"
       empty_directory_with_keep_file "vendor"
     end
     #########################################################
     # public/ directory files
     #########################################################
-    def remove_html_files # Added by Quinton and Tricia
+    def remove_html_files
       remove_file "public/404.html"
       remove_file "public/422.html"
       remove_file "public/500.html"
